@@ -3,9 +3,9 @@
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE acquatec;
+CREATE DATABASE flowerboy;
 
-USE acquatec;
+USE flowerboy;
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -14,24 +14,14 @@ CREATE TABLE usuario (
 	senha VARCHAR(50)
 );
 
-CREATE TABLE aviso (
+CREATE TABLE pontuacao (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
+	pontos VARCHAR(50),
+    acertos VARCHAR(10),
+	mediaAcertos CHAR(2)
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 ); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
-
-
-
 
 /* para sql server - remoto - produção */
 
@@ -42,19 +32,12 @@ CREATE TABLE usuario (
 	senha VARCHAR(50),
 );
 
-CREATE TABLE aviso (
+CREATE TABLE pontuacao (
 	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
+	pontos VARCHAR(50),
+    acertos VARCHAR(10),
+	mediaAcertos CHAR(2)
 	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
 ); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
 
 

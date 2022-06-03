@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="icon" href="assets/imgs/logo-negao.png">
+    <link rel="icon" href="assets/icon/logo-negao.png">
     <title>Cadastro</title>
 </head>
 
@@ -32,8 +32,8 @@
                         <li><a href="dashboard.html">Dashboard</a></li>
                         <li><a href="quiz.html">Quiz</a></li>
                         <li><a href="cadastrar.html">Cadastrar</a></li>
-                        <li><a href="Login.html">Entrar</a> </li>
-                        <li><a href="Login.html">Sair</a> </li>
+                        <li><a href="login.html">Entrar</a> </li>
+                        <li><a href="login.html">Sair</a> </li>
                     </ul>
                 </div>
             </div>
@@ -43,26 +43,25 @@
     <div class="content">
         <div id="cadastro">
             <form method="post" action="">
-                <h1>Cadastro</h1>
+                <h1>CADASTRO</h1>
 
                 <p>
-                    <label for="nome_cad">Seu nome</label>
+                    <label for="nome_cad">SEU NOME</label>
                     <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="nome" />
                 </p>
 
                 <p>
-                    <label for="email_cad">Seu e-mail</label>
-                    <input id="email_cad" name="email_cad" required="required" type="email"
-                        placeholder="contato@htmlecsspro.com" />
+                    <label for="email_cad">SEU E-MAIL</label>
+                    <input id="email_cad" required="required" type="email" placeholder="contato@htmlecsspro.com" />
                 </p>
 
                 <p>
-                    <label for="senha_cad">Sua senha</label>
-                    <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234" />
+                    <label for="senha_cad">SUA SENHA</label>
+                    <input id="senha_cad" required="required" type="password" placeholder="ex. 1234" />
                 </p>
 
                 <p>
-                    <input type="submit" value="Cadastrar" />
+                    <input type="submit" value="CADASTRAR" onclick="cadastrar()" />
                 </p>
 
                 <p class="link">
@@ -73,6 +72,7 @@
         </div>
     </div>
     </div>
+    </div>
 
     <div class="footer">
         <div class="container">
@@ -81,3 +81,68 @@
         </div>
     </div>
 </body>
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_cad.value;
+        var emailVar = email_cad.value;
+        var senhaVar = senha_cad.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
