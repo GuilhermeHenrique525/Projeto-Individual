@@ -27,7 +27,6 @@ body {
     margin: auto;
     justify-content: space-between;
 }
-
 /* Fim Header */
 
 
@@ -147,8 +146,156 @@ a {
 #nav-menu:focus-within #content-menu {
     transform: none;
 }
-
 /* Fim Sidebar */
+
+
+/* Começo quiz */
+.quiz {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgb(0, 0, 0);
+    background-color: rgb(255, 217, 0);
+}
+
+.quiz .painel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quiz .jogo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.jogo h1 {
+    display: flex;
+    justify-content: center;
+    color: #000000;
+}
+
+#iniciar {
+    border: none;
+    border-radius: 50px;
+    padding: 7px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: #000000 3px 3px 3px;
+    background-color: #ff6600;
+}
+
+.mensagens {
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.part {
+    width: 100%;
+}
+
+.quiz .painel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.perguntas {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pergunta {
+    display: flex;
+    justify-content: center;
+}
+
+.respostas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    margin-bottom: 100px;
+    font-size: 20px;
+}
+
+.pontuacao {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    justify-content: center;
+    display: flex;
+}
+
+.denovo {
+    justify-content: center;
+    display: flex;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    flex-direction: column;
+}
+
+.fim {
+    border: none;
+    padding: 5px;
+    width: 315px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: #000000 3px 3px 3px;
+    background-color: #ff6600;
+}
+
+button {
+    border-radius: 20px;
+    color: black;
+    background-color: #ff6600;
+    border: none;
+    box-shadow: #000000 3px 3px 3px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.botoes button {
+    border: none;
+    padding: 5px;
+    width: 315px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: #000000 3px 3px 3px;
+    background-color: #ff6600;
+}
+/* Fim quiz */
+
 
 /* Começo footer */
 .footer {
@@ -159,7 +306,7 @@ a {
     font-size: 15px;
 }
 
-.linkk {
+.link {
     color: #fff;
 }
 

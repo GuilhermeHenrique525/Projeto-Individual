@@ -26,17 +26,511 @@
                 </div>
                 <div id="content-menu" tabindex="0">
                     <ul>
+                        <li><a href="index.html">Inicio</a></li>
                         <li><a href="albuns.html">Albuns</a></li>
                         <li><a href="topmúsicas.html">Top músicas</a></li>
                         <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
                         <li><a href="quiz.html">Quiz</a></li>
-                        <li><a href="cadastrar.html">Cadastrar</a></li>
-                        <li><a href="login.html">Entrar</a> </li>
                         <li><a href="login.html">Sair</a> </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    
+    <!--Fim header-->
+
+    <div class="quiz">
+        <div class="painel">
+            <div style="display: none" id="visor">
+                <h3>Resposta Correta</h3>
+            </div>
+            <div class="jogo" id="iniJogo" style="display: block;">
+                <h2>Você sabe tudo sobre tyler the creator?</h2> <br>
+                <h3>Nesse quiz tem 10 perguntas.</h3> <br>
+                <button onclick="iquiz()" id="iniciar">Começar quiz</button>
+            </div>
+            <div class="part" id="part1" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta1"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="errada1()">Flower boy</button>
+                    <button onclick="correta1()">Bastard</button>
+                    <button onclick="errada1()">Cherry Bomb</button>
+                </div>
+            </div>
+            <div class="part" id="part2" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta2"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="correta2()">Call Me if You Get Lost</button>
+                    <button onclick="errada2()">Flower Boy</button>
+                    <button onclick="errada2()">Igor</button>
+                </div>
+            </div>
+            <div class="part" id="part3" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta3"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="errada3()">Tyler the creator</button>
+                    <button onclick="errada3()">Tyler Gregory Creator</button>
+                    <button onclick="correta3()">Tyler Gregory Okonma</button>
+                </div>
+            </div>
+            <div class="part" id="part4" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta4"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="errada4()">2000</button>
+                    <button onclick="errada4()">1979</button>
+                    <button onclick="correta4()">1991</button>
+                </div>
+            </div>
+            <div class="part" id="part5" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta5"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="correta5()">Designer gráfico, estilista e roterista</button>
+                    <button onclick="errada5()">Cientista de dados</button>
+                    <button onclick="errada5()">Ele só é um cantor</button>
+                </div>
+            </div>
+            <div class="part" id="part6" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta6"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="errada6()">10</button>
+                    <button onclick="correta6()">5</button>
+                    <button onclick="errada6()">2</button>
+                </div>
+            </div>
+            <div class="part" id="part7" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta7"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="correta7()">Sim</button>
+                    <button onclick="errada7()">Não</button>
+                </div>
+            </div>
+            <div class="part" id="part8" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta8"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="errada8()">Porque sim</button>
+                    <button onclick="errada8()">Apareceu um nome na cabeça dele na hora de escolher</button>
+                    <button onclick="correta8()">Nome da conta no MySpace</button>
+                </div>
+            </div>
+            <div class="part" id="part9" style="display: none;">
+                <div class="pergunta">
+                    <h3 id="pergunta9"></h3>
+                </div>
+                <div class="botoes">
+                    <button onclick="correta9()">Earkquake</button>
+                    <button onclick="errada9()">Corso</button>
+                    <button onclick="errada9()">Best Interest</button>
+                </div>
+            </div>
+            <div class="part" id="part10" style="display: none;">
+                <div>
+                    <h2>Fim de jogo</h2> <br>
+                </div>
+                <div class="pontuacao">
+                    Você acertou <span id="acerto">0</span> de 10
+                </div>
+                <div class="denovo">
+                    <button onclick="denovo()">Jogar Novamente</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <h4>Feito por <a href="https://github.com/GuilhermeHenrique525" class="link">Guilherme Henrique Angelo
+                    Dias</a> 1CCO</h4>
+        </div>
+    </div>
+</body>
+<script>
+    var respostas = [
+        'Qual foi a primeira música que ele fez?',
+        'Qual album dele fez mais sucesso?',
+        'Qual é o verdadeiro nome do tyler?',
+        'Em qual ano tyler nasceu?',
+        'Quais tipos de ocupação tyler tem?',
+        'Quantos premios tyler ganhou?',
+        'Ele é co-fundador Odd Future?',
+        'Porque tyler the creator?',
+        'Qual é a música mais ouvida?',
+        'Qual foi seu primeiro album lançado?'
+    ];
+
+    var contadorAcerto = 0
+
+    function iquiz() {
+        iniJogo.style.display = "none";
+        part1.style.display = "block";
+
+        pergunta1.innerHTML = `${respostas[0]}`
+    }
+    // Questão 1
+    function correta1() {
+        part1.style.display = "none";
+        part2.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta2.innerHTML = `${respostas[1]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada1() {
+        part1.style.display = "none";
+        part2.style.display = "block";
+
+
+        pergunta2.innerHTML = `${respostas[1]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim da questão 1
+
+    // Questão 2
+    function correta2() {
+        part2.style.display = "none";
+        part3.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta3.innerHTML = `${respostas[2]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada2() {
+        part2.style.display = "none";
+        part3.style.display = "block";
+
+
+        pergunta3.innerHTML = `${respostas[2]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 2
+
+    // Questão 3
+    function correta3() {
+        part3.style.display = "none";
+        part4.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta4.innerHTML = `${respostas[3]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada3() {
+        part3.style.display = "none";
+        part4.style.display = "block";
+
+
+        pergunta4.innerHTML = `${respostas[3]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 3
+
+    //Questão 4
+    function correta4() {
+        part4.style.display = "none";
+        part5.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta5.innerHTML = `${respostas[4]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada4() {
+        part4.style.display = "none";
+        part5.style.display = "block";
+
+
+        pergunta5.innerHTML = `${respostas[4]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 4
+
+    //Questão 5
+    function correta5() {
+        part5.style.display = "none";
+        part6.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta6.innerHTML = `${respostas[5]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada5() {
+        part5.style.display = "none";
+        part6.style.display = "block";
+
+
+        pergunta6.innerHTML = `${respostas[5]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim Questão 5
+
+    //Questão 6
+    function correta6() {
+        part6.style.display = "none";
+        part7.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta7.innerHTML = `${respostas[6]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada6() {
+        part6.style.display = "none";
+        part7.style.display = "block";
+
+
+        pergunta7.innerHTML = `${respostas[6]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 6
+
+    // Questão 7
+    function correta7() {
+        part7.style.display = "none";
+        part8.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta8.innerHTML = `${respostas[7]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada7() {
+        part7.style.display = "none";
+        part8.style.display = "block";
+
+
+        pergunta8.innerHTML = `${respostas[7]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 7
+
+    // Questão 8
+    function correta8() {
+        part8.style.display = "none";
+        part9.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta9.innerHTML = `${respostas[8]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada8() {
+        part8.style.display = "none";
+        part9.style.display = "block";
+
+
+        pergunta9.innerHTML = `${respostas[8]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 8
+
+    // Questão 9
+    function correta9() {
+        part9.style.display = "none";
+        part10.style.display = "block";
+        contadorAcerto = contadorAcerto + 1;
+        acerto.innerHTML = contadorAcerto
+
+        pergunta10.innerHTML = `${respostas[9]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: green;">Resposta correta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+
+    }
+
+    function errada9() {
+        part9.style.display = "none";
+        part10.style.display = "block";
+
+
+        pergunta10.innerHTML = `${respostas[9]}`
+
+        setTimeout(function () {
+            visor.style.display = "block";
+            visor.innerHTML = '<b style="color: red;">Resposta incorreta!</b>'
+        }, 100);
+
+        setTimeout(function () {
+            visor.style.display = "none";
+        }, 2000);
+    }
+    // Fim questão 9
+
+    // Questão 10
+    function denovo() {
+        iniJogo.style.display = "block";
+        part10.style.display = "none";
+        location.reload()
+    }
+// Fim questão 10
+</script>
+
+</html>
